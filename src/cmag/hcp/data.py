@@ -121,3 +121,27 @@ def load(sid, h,
         surface_area=vdata[8],
         coordinates=vdata[9:],
         faces=faces)
+
+def joinhemis(lhdata, rhdata=None, /):
+    """Joins left and right hemisphere HCP data into a single data object.
+
+    The `cmag.hcp.data.load` function returns a data structure (a dictionary of
+    numpy arrays) for an individual hemisphere. To run analyses on the entire
+    bilateral visual area, these hemispheres must be joined. This function can
+    be called either as `joinhemis(lhdata, rhdata)` or as 
+    `joinhemis((lhdata, rhdata))`. It returns the data with all keys joined and
+    the additional key `'hemisphere'` whose values are either `'lh'` or `'rh'`.
+    """
+    from numpy import full, concatenate
+    if rhdata is None:
+        (lhdata, rhdata) = lhdata
+    basic_keys = (
+        'vertex_label', 'label', 'x', 'y', 'sigma', 'polar_angle',
+        'eccentricity', 'cod', 'surface_area', 'coordinates', 'faces')
+    data = {
+        k: concatenate([lhdata[k], rhdata[k]], axis=-1)
+        for k in basic_keys}
+    nlh = len(lhdata['label'])
+    nrh = len(rhdata['label'])
+    data['hemisphere'] = concatenate([full(nlh, 'lh'), full(nrh, 'rh')])
+    return data

@@ -130,6 +130,10 @@ def fit_cmag_data(data, formfn, params0,
         filter = lambda dat: True
     if labels is None:
         labels = range(1,11)
+    # If we were passed a 2-tuple of (lh,rh) data, join them.
+    if isinstance(data, tuple) and len(data) == 2:
+        from .data import joinhemis
+        data = joinhemis(data)
     res = []
     for lbl in ([labels] if isinstance(labels, int) else labels):
         ii = filter(data) & (data['label'] == lbl)
@@ -149,7 +153,7 @@ def fit_cmag_data(data, formfn, params0,
                 weights=weights,
                 **kw)
         res.append(r)
-    return result[0] if isinstance(labels, int) else tuple(res)
+    return res[0] if isinstance(labels, int) else tuple(res)
 
 __all__ = (
     "config",

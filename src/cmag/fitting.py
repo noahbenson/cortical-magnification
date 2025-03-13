@@ -179,6 +179,7 @@ def fit_cumarea(surface_areas, eccen,
     from .models import CMagModel, CMagRadialModel
     sarea = asarray(surface_areas)
     eccen = asarray(eccen)
+    params0 = asarray(params0, dtype=eccen.dtype)
     ii = argsort(eccen)
     sarea = sarea[ii]
     eccen = eccen[ii]

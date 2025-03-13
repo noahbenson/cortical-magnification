@@ -105,7 +105,8 @@ class hh91(CMagRadialModel):
         if fov is Ellipsis:
             from .hcp.config import fov
         max_eccen = float(fov) / 2
-        a = HH91_find_a(total_area, 0, max_eccen, b=b, hemifields=hemifields)
+        # The total area is always a bilateral surface area, so hemifields=2.
+        a = HH91_find_a(total_area, 0, max_eccen, b=b, hemifields=2)
         return HH91_integral(0, r, a=a, b=b, hemifields=hemifields)
     @classmethod
     def radial_cmag(cls, r, total_area, fov, hemifields, b=0.75):
@@ -113,7 +114,8 @@ class hh91(CMagRadialModel):
         if fov is Ellipsis:
             from .hcp.config import fov
         max_eccen = float(fov) / 2
-        a = HH91_find_a(total_area, 0, max_eccen, b=b, hemifields=hemifields)
+        # The total area is always a bilateral surface area, so hemifields=2.
+        a = HH91_find_a(total_area, 0, max_eccen, b=b, hemifields=2)
         return HH91(r, a, b)
     argtx = (np.log, np.exp)
 
