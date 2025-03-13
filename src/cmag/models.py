@@ -22,7 +22,7 @@ class CMagModel:
         m = cls.areal_cmag(x, y, total_area, fov, *args)
         return torch.sqrt(m)
     def __new__(cls, x, y, /, *args,
-                total_area=1, fov=Ellipsis, hemifields=2, device=None,
+                total_area=1, fov=Ellipsis, device=None,
                 form='areal'):
         torch_inputs = torch.is_tensor(x) or torch.is_tensor(y)
         total_area = float(total_area)
@@ -35,9 +35,9 @@ class CMagModel:
             except Exception:
                 tmp.append(arg)
         if form == 'areal':
-            res = cls.areal_cmag(x, y, total_area, fov, hemifields, *args)
+            res = cls.areal_cmag(x, y, total_area, fov, *args)
         elif form == 'linear':
-            res = cls.linear_cmag(x, y, total_area, fov, hemifields, *args)
+            res = cls.linear_cmag(x, y, total_area, fov, *args)
         else:
             raise ValueError(
                 "CMagModel form argument must be 'areal' or 'linear'")
@@ -49,7 +49,7 @@ class CMagRadialModel(CMagModel):
     def radial_cumarea(cls, r, total_area, fov, hemifields, *args):
         raise NotImplementedError
     @classmethod
-    def radial_cmag(cls, r, total_area, fov, hemifields, *args):
+    def radial_cmag(cls, r, total_area, fov, *args):
         raise NotImplementedError
     @classmethod
     def radial_area(cls, r, total_area, fov, hemifields, *args):
@@ -58,9 +58,11 @@ class CMagRadialModel(CMagModel):
             hemifields=2, **kw)
         return hemifields * torch.pi * r * cmag
     @classmethod
-    def areal_cmag(cls, x, y, total_area, fov, hemifields, *args):
+    def areal_cmag(cls, x, y, total_area, fov, *args):
+        x = torch.as_tensor(x, dtype=float)
+        y = torch.as_tensor(y, dtype=float)
         r = torch.hypot(x, y)
-        return cls.radial_cmag(r, total_area, fov, hemifields, *args)
+        return cls.radial_cmag(r, total_area, fov, *args)
 
 class hh91(CMagRadialModel):
     """A cortical magnification model based on Horton and Hoyt's (1991) model.
@@ -109,7 +111,7 @@ class hh91(CMagRadialModel):
         a = HH91_find_a(total_area, 0, max_eccen, b=b, hemifields=2)
         return HH91_integral(0, r, a=a, b=b, hemifields=hemifields)
     @classmethod
-    def radial_cmag(cls, r, total_area, fov, hemifields, b=0.75):
+    def radial_cmag(cls, r, total_area, fov, b=0.75):
         from .hh91 import HH91, HH91_find_a
         if fov is Ellipsis:
             from .hcp.config import fov
@@ -162,13 +164,13 @@ class beta(CMagRadialModel):
         in `r` according to the provided parameters.
     """
     @classmethod
-    def radial_cumarea(cls, r, total_area, fov, hemifields,
-                       a=2.0, b=3.0):
+    def radial_cumarea(cls, r, total_area, fov, hemifields, a=2.0, b=3.0):
         from scipy.stats import beta
         if fov is Ellipsis:
             from .hcp.config import fov
         max_eccen = float(fov) / 2
-        b = total_area * beta.cdf((r / max_eccen).numpy(), a, b)
+        const = total_area * hemifields / 2
+        b = const * beta.cdf((r / max_eccen).numpy(), a, b)
         return torch.as_tensor(b)
     @classmethod
     def radial_area(cls, r, total_area, fov, hemifields, a=2.0, b=3.0):
@@ -176,7 +178,8 @@ class beta(CMagRadialModel):
         if fov is Ellipsis:
             from .hcp.config import fov
         max_eccen = float(fov) / 2
-        return total_area * Beta(a, b).log_prob(r / max_eccen).exp()
+        const = total_area * hemifields / 2
+        return const * Beta(a, b).log_prob(r / max_eccen).exp()
     @staticmethod
     def _beta(a, b):
         la = torch.lgamma(a)
@@ -184,12 +187,12 @@ class beta(CMagRadialModel):
         lab = torch.lgamma(a + b)
         return torch.exp(la + lb - lab)
     @classmethod
-    def radial_cmag(cls, r, total_area, fov, hemifields, a=1.0, b=3.0):
+    def radial_cmag(cls, r, total_area, fov, a=1.0, b=3.0):
         if fov is Ellipsis:
             from .hcp.config import fov
         max_eccen = float(fov) / 2
-        const = total_area / (hemifields * torch.pi * max_eccen)
-        pdf = cls.radial_area(r, 1, fov, hemifields, a=a, b=b)
+        const = total_area / (2 * torch.pi * max_eccen)
+        pdf = cls.radial_area(r, 1, fov, 2, a=a, b=b)
         pdf_adj = pdf / r
         if a < 2:
             pdf_adj[r == 0] = torch.inf
