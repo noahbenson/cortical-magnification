@@ -34,4 +34,4 @@ function $f(x, y)$ of this distribution is simply the cortical magnification
 function $m$ divided by the overall size of the represented visual area, which
 we denote $A_0$:
 
-$$ m(x, y) = A_0 f(x,y) $$.
+$$ m(x, y) = A_0 f(x,y) $$
