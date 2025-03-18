@@ -5,12 +5,14 @@
 We define the cortical magnification function $m(x, y)$, with $x$ and $y$ being
 the coordinates of a point in the visual field typically in degrees of visual
 angle, to be a function that yields the magnification factor, typically in
-mm$^2$ of cortex per degree$^2$ of visual angle. This notably differs from the
-linear cortical magnification such as that proposed by Horton and Hoyt (1991)
-in their equation $m_\mbox{HH}(r) = a / (b + r)$ for an eccentricity $r =
-\sqrt{x^2 + y^2}$ and parameters $a$ in mm and $b$ in degrees. Such a function
-can be converted from a linear cortical magnification to an (areal) cortical
-magnification function by squaring it.
+$\mbox{mm}^2$ of cortex per $\mbox{degree}^2$ of visual angle. This notably
+differs from the linear cortical magnification such as that proposed by Horton
+and Hoyt (1991) in their equation $m(r) = a / (b + r)$ for an
+eccentricity $r = \sqrt{x^2 + y^2}$ and parameters $a$ in mm and $b$ in
+degrees. Such a function can be converted from a linear cortical magnification
+to an (areal) cortical magnification function by squaring it; here, we use the areal version of the Horton and Hoyt model:
+
+$$ m_\mbox{HH}(r) = \left(\frac{a}{b+r}\right)^2 $$ .
 
 We use the variable $r$ to indicate the visual eccentricity ($r = \sqrt{x^2 +
 y^2}$).
@@ -34,4 +36,4 @@ function $f(x, y)$ of this distribution is simply the cortical magnification
 function $m$ divided by the overall size of the represented visual area, which
 we denote $A_0$:
 
-$$ m(x, y) = A_0 f(x,y) $$
+$$ m(x, y) = A_0 f(x,y) $$ .
