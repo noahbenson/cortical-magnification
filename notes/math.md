@@ -2,15 +2,28 @@
 
 ## Notation
 
+### Angles and Degrees
+Degrees of the visual field and degrees of rotation (or degrees of polar angle)
+can be ambiguous. To avoid this ambiguouty in this document, we always use
+degrees of visual angle when discussing distances between points in the visual
+field or eccentricity, and we always use radians when discussing polar angle
+(which is often represented as degrees of rotation around the fovea). In other
+words, degrees always refers to degrees of visual angle and radians always
+refers to rotation around the visual field. A polar angle of 0 is considered to
+be the right horizontal meridian, and a polar angle of $\pi / 2$ is considered
+to be the upper vertical meridian.
+
+### Cortical Magnification
 We define the cortical magnification function $m(x, y)$, with $x$ and $y$ being
 the coordinates of a point in the visual field typically in degrees of visual
 angle, to be a function that yields the magnification factor, typically in
 $\mbox{mm}^2$ of cortex per $\mbox{degree}^2$ of visual angle. This notably
 differs from the linear cortical magnification such as that proposed by Horton
-and Hoyt (1991) in their equation $m(r) = a / (b + r)$ for an
-eccentricity $r = \sqrt{x^2 + y^2}$ and parameters $a$ in mm and $b$ in
-degrees. Such a function can be converted from a linear cortical magnification
-to an (areal) cortical magnification function by squaring it; here, we use the areal version of the Horton and Hoyt model:
+and Hoyt (1991) in their equation $m(r) = a / (b + r)$ for an eccentricity $r =
+\sqrt{x^2 + y^2}$ and parameters $a$ in mm and $b$ in degrees. Such a function
+can be converted from a linear cortical magnification to an (areal) cortical
+magnification function by squaring it; here, we use the areal version of the
+Horton and Hoyt model:
 
 $$ m_\mbox{HH}(r) = \left(\frac{a}{b+r}\right)^2 $$
 
@@ -37,3 +50,11 @@ function $m$ divided by the overall size of the represented visual area, which
 we denote $A_0$:
 
 $$ m(x, y) = A_0 f(x,y) $$
+
+One small issue with the above construction is that the cumulative density
+function is difficult to derive as it requires integration:
+
+$$ M(x,y) = \int_{\theta=-\pi}^{\theta=\pi} \int_{r=0}^{r=R} m(x,y) \diff{r} \diff{\theta} $$
+
+
+## Fitting cortical magnification
