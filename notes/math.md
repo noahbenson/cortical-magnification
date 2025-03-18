@@ -70,7 +70,7 @@ this slightly more:
 $$ \begin{align}
 M(r) &=& A_0 F(r) \\
      &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, m(r) \\, \mathrm{d}r \\, \mathrm{d}\theta \\
-     &=& 2 \pi A_0 r \int_{0}^{R} m(r) \\, \mathrm{d}r
+     &=& 2 \pi A_0 \int_{0}^{R} r \\, m(r) \\, \mathrm{d}r
 \end{align} $$
 
 
