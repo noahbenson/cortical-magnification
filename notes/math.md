@@ -55,8 +55,8 @@ One small issue with the above construction is that the cumulative density
 function is difficult to derive as it requires integration:
 
 $$ \begin{aligned}
-M(x,y) &=& \int_{\pi}^{\pi} \int_{0}^{R} m(x,y) \, \mathrm{d}r \, \mathrm{d}\theta \\
-       &=& A_0 \int_{\pi}^{\pi} \int_{0}^{R} f(x,y) \, \mathrm{d}r \, \mathrm{d}\theta \\
+M(x,y) &=& \int_{\pi}^{\pi} \int_{0}^{R} m(x,y) \. \mathrm{d}r \. \mathrm{d}\theta \\
+       &=& A_0 \int_{\pi}^{\pi} \int_{0}^{R} f(x,y) \. \mathrm{d}r \. \mathrm{d}\theta \\
 \end{aligned} $$
 
 
