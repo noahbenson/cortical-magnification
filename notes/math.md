@@ -57,9 +57,21 @@ function is difficult to derive as it requires integration:
 $$ \begin{aligned}
 M(x,y) &=& A_0 F(x,y) \\
        &=& \int \int m(x,y) \\, \mathrm{d}x \\, \mathrm{d}y \\
-       &=& \int_{\pi}^{\pi} \int_{0}^{R} r \\, m(r\cos\theta, r\sin\theta) \\, \mathrm{d}r \\, \mathrm{d}\theta \\
-       &=& 2 \pi A_0 \int_{0}^{R} r \\, f(x,y) \\, \mathrm{d}r \\
+       &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, m(r\cos\theta, r\sin\theta) \\, \mathrm{d}r \\, \mathrm{d}\theta \\
+       &=& A_0 \int_{-\pi}^{\pi} \int_{0}^{R} r \\, f(r\cos\theta, r\sin\theta) \\, \mathrm{d}r \\, \mathrm{d}\theta \\
 \end{aligned} $$
+
+Depending on the functions $m$ and $f$, this construction may not have a closed
+form; though in the specific case of a radial cortical magnification function
+(i.e., a cortical magnification function that depends only on the eccentricity
+$r$ and not on the specific visual field position $(x,y)$), we can simplify
+this slightly more:
+
+$$ \begin{align}
+M(r) &=& A_0 F(r) \\
+     &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, m(r) \\, \mathrm{d}r \\, \mathrm{d}\theta \\
+     &=& 2 \pi A_0 r \int_{0}^{R} m(r) \\, \mathrm{d}r
+\end{align} $$
 
 
 ## Fitting cortical magnification
