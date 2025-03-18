@@ -54,7 +54,10 @@ $$ m(x, y) = A_0 f(x,y) $$
 One small issue with the above construction is that the cumulative density
 function is difficult to derive as it requires integration:
 
-$$ M(x,y) = \int_{\theta=-\pi}^{\theta=\pi} \int_{r=0}^{r=R} m(x,y) \mathrm{d}r \mathrm{d}\theta $$
+$$ \begin{aligned}
+M(x,y) &=& \int_{\pi}^{\pi} \int_{0}^{R} m(x,y) \, \mathrm{d}r \, \mathrm{d}\theta \\
+       &=& A_0 \int_{\pi}^{\pi} \int_{0}^{R} f(x,y) \, \mathrm{d}r \, \mathrm{d}\theta \\
+\end{aligned} $$
 
 
 ## Fitting cortical magnification
