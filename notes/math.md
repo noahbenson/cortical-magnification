@@ -64,14 +64,25 @@ M(x,y) &=& A_0 F(x,y) \\
 Depending on the functions $m$ and $f$, this construction may not have a closed
 form; though in the specific case of a radial cortical magnification function
 (i.e., a cortical magnification function that depends only on the eccentricity
-$r$ and not on the specific visual field position $(x,y)$), we can simplify
+$r$ and not on the specific visual field position $(x,y)$ ), we can simplify
 this slightly more:
 
 $$ \begin{align}
 M(r) &=& A_0 F(r) \\
      &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, m(r) \\, \mathrm{d}r \\, \mathrm{d}\theta \\
-     &=& 2 \pi A_0 \int_{0}^{R} r \\, m(r) \\, \mathrm{d}r
+     &=& 2 \pi \int_{0}^{R} r \\, m(r) \\, \mathrm{d}r = 2 \pi A_0 \int_{0}^{R} r \\, f(r) \\, \mathrm{d}r
+\end{align} $$
+
+### The Horton and Hoyt (1991) model
+In the wpecific case of the model $m_\mbox{HH}(r) = (a / (b + r))^2$, we can
+solve the integral directly:
+
+$$ \begin{align}
+M_\mbox{HH}(r) &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, \left( \frac{a}{b+r} \right)^2 \\, \mathrm{d}r \\, \mathrm{d}\theta \\
+    &=& 2 \pi a^2 \int_{0}^{R} r \\, (b+r)^{-2} \\, \mathrm{d}r \\
 \end{align} $$
 
 
+
 ## Fitting cortical magnification
+
