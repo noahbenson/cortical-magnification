@@ -80,7 +80,7 @@ solve the integral directly:
 $$ \begin{align}
 M_\mbox{HH}(r) &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, \left( \frac{a}{b+r} \right)^2 \\, \mathrm{d}r \\, \mathrm{d}\theta \\
     &=& 2 \pi a^2 \int_{0}^{R} r \\, (b+r)^{-2} \\, \mathrm{d}r \\
-    &=& 2 \pi a^2 \left( \log\left(\frac{b+r}{b}\right) - \frac{r}{b + r}
+    &=& 2 \pi a^2 \left( \log\left(\frac{b+r}{b}\right) - \frac{r}{b + r} \right)
 \end{align} $$
 
 
