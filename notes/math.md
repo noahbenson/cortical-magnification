@@ -12,7 +12,7 @@ eccentricity $r = \sqrt{x^2 + y^2}$ and parameters $a$ in mm and $b$ in
 degrees. Such a function can be converted from a linear cortical magnification
 to an (areal) cortical magnification function by squaring it; here, we use the areal version of the Horton and Hoyt model:
 
-$$ m_\mbox{HH}(r) = \left(\frac{a}{b+r}\right)^2 $$ .
+$$ m_\mbox{HH}(r) = \left(\frac{a}{b+r}\right)^2 $$
 
 We use the variable $r$ to indicate the visual eccentricity ($r = \sqrt{x^2 +
 y^2}$).
@@ -36,4 +36,4 @@ function $f(x, y)$ of this distribution is simply the cortical magnification
 function $m$ divided by the overall size of the represented visual area, which
 we denote $A_0$:
 
-$$ m(x, y) = A_0 f(x,y) $$ .
+$$ m(x, y) = A_0 f(x,y) $$
