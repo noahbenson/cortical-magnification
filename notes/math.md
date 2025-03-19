@@ -83,6 +83,13 @@ M_\mbox{HH}(r) &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, \left( \frac{a}{b+r} \ri
     &=& 2 \pi a^2 \left( \log\left(\frac{b+r}{b}\right) - \frac{r}{b + r} \right)
 \end{align} $$
 
+The Horton and Hoyt model is closely related to the [reciprocal distribution](https://en.wikipedia.org/wiki/Reciprocal_distribution). This distribution is characterized by the probability density function $f_\mbox{recip}(x)$ and cumulative density function $F_\mbox{recip}(x)$, below:
+
+$$ \begin{aligned}
+f_\mbox{recip}(x) &=& \frac{1}{x \log\left(\frac{b}{a}\right)} \\
+F_\mbox{recip}(x) &=& \frac{\log x - \log a}{\log b - \log a} 
+\end{aligned} $$
+
 
 
 ## Fitting cortical magnification
