@@ -92,7 +92,7 @@ F_\mbox{recip}(x) &=& \frac{\log(x) - \log(b)}{\log(a) - \log(b)}
 
 The linear version of the Horton and Hoyt model can be expressed as follows:
 
-$$ m_\overline{\mbox{HH}}(r; a, b) = \sqrt{A_0} \\, f\mbox{recip}(r + b; a, b) $$
+$$ m_\overline{\mbox{HH}}(r; a, b) = \sqrt{A_0} \\, f_\mbox{recip}(r + b; a, b) $$
 
 
 
