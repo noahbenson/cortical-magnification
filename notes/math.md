@@ -13,6 +13,10 @@ refers to rotation around the visual field. A polar angle of 0 is considered to
 be the right horizontal meridian, and a polar angle of $\pi / 2$ is considered
 to be the upper vertical meridian.
 
+### Functions and Parameters
+For a function $f$ that represents a model, we write $f(x, y; a, b)$ when $x$
+and $y$ are input variables to the model and $a$ and $b$ are model parameters.
+
 ### Cortical Magnification
 We define the cortical magnification function $m(x, y)$, with $x$ and $y$ being
 the coordinates of a point in the visual field typically in degrees of visual
