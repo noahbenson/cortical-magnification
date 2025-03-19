@@ -88,16 +88,23 @@ M_\mbox{HH}(r; a, b) &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, \left( \frac{a}{b+
     &=& 2 \pi a^2 \left( \log\left(\frac{b+r}{b}\right) - \frac{r}{b + r} \right)
 \end{align} $$
 
-The Horton and Hoyt model is closely related to the [reciprocal distribution](https://en.wikipedia.org/wiki/Reciprocal_distribution). This distribution is characterized by the probability density function $f_\mbox{recip}(x)$ and cumulative density function $F_\mbox{recip}(x)$, below:
+The Horton and Hoyt model is closely related to the [reciprocal
+distribution](https://en.wikipedia.org/wiki/Reciprocal_distribution). This
+distribution is characterized by the probability density function
+$f_\mbox{recip}(x)$ and cumulative density function $F_\mbox{recip}(x)$, below:
 
 $$ \begin{aligned}
 f_\mbox{recip}(x; a, b) &=& \frac{1}{x \\, \log\left(\frac{a}{b}\right)} \\
 F_\mbox{recip}(x; a, b) &=& \frac{\log(x) - \log(b)}{\log(a) - \log(b)} 
 \end{aligned} $$
 
-The linear version of the Horton and Hoyt model can be expressed as follows:
+The linear version of the Horton and Hoyt model is essentially a reciprocal
+distribution that is not truncated at the periphery. (Reciprocal distributions
+are typically defined only over the interval $[a,b]$.) However, since the
+magnification in the periphery is very small, the model is very close to the
+reciprocal distribution with a different scaling factor:
 
-$$ m_\overline{\mbox{HH}}(r; a, b) = \sqrt{A_0} \\, f_\mbox{recip}(r + b; a, b) $$
+$$ m_\overline{\mbox{HH}}(r; a, b) \approx \sqrt{A_0} \\, f_\mbox{recip}(r + b; a, b) $$
 
 
 ## Fitting cortical magnification
