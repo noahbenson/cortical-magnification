@@ -19,13 +19,13 @@ the coordinates of a point in the visual field typically in degrees of visual
 angle, to be a function that yields the magnification factor, typically in
 $\mbox{mm}^2$ of cortex per $\mbox{degree}^2$ of visual angle. This notably
 differs from the linear cortical magnification such as that proposed by Horton
-and Hoyt (1991) in their equation $m_\overline{\mbox{HH}}(r) = a / (b + r)$ for
-an eccentricity $r = \sqrt{x^2 + y^2}$ and parameters $a$ in mm and $b$ in
-degrees. Such a function can be converted from a linear cortical magnification
-to an (areal) cortical magnification function by squaring it; here, we use the
-areal version of the Horton and Hoyt model:
+and Hoyt (1991) in their equation $m_\overline{\mbox{HH}}(r; a, b) = a / (b +
+r)$ for an eccentricity $r = \sqrt{x^2 + y^2}$ and parameters $a$ in mm and $b$
+in degrees. Such a function can be converted from a linear cortical
+magnification to an (areal) cortical magnification function by squaring it;
+here, we use the areal version of the Horton and Hoyt model:
 
-$$ m_\mbox{HH}(r) = \left(\frac{a}{b+r}\right)^2 $$
+$$ m_\mbox{HH}(r; a, b) = \left(\frac{a}{b+r}\right)^2 $$
 
 We use the variable $r$ to indicate the visual eccentricity ($r = \sqrt{x^2 +
 y^2}$).
@@ -74,11 +74,11 @@ M(r) &=& A_0 F(r) \\
 \end{align} $$
 
 ### The Horton and Hoyt (1991) model
-In the wpecific case of the model $m_\mbox{HH}(r) = (a / (b + r))^2$, we can
-solve the integral directly:
+In the specific case of the model $m_\mbox{HH}(r; a, b) = (a / (b + r))^2$, we
+can solve the integral directly:
 
 $$ \begin{align}
-M_\mbox{HH}(r) &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, \left( \frac{a}{b+r} \right)^2 \\, \mathrm{d}r \\, \mathrm{d}\theta \\
+M_\mbox{HH}(r; a, b) &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, \left( \frac{a}{b+r} \right)^2 \\, \mathrm{d}r \\, \mathrm{d}\theta \\
     &=& 2 \pi a^2 \int_{0}^{R} r \\, (b+r)^{-2} \\, \mathrm{d}r \\
     &=& 2 \pi a^2 \left( \log\left(\frac{b+r}{b}\right) - \frac{r}{b + r} \right)
 \end{align} $$
@@ -86,8 +86,8 @@ M_\mbox{HH}(r) &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, \left( \frac{a}{b+r} \ri
 The Horton and Hoyt model is closely related to the [reciprocal distribution](https://en.wikipedia.org/wiki/Reciprocal_distribution). This distribution is characterized by the probability density function $f_\mbox{recip}(x)$ and cumulative density function $F_\mbox{recip}(x)$, below:
 
 $$ \begin{aligned}
-f_\mbox{recip}(x) &=& \frac{1}{x \\, \log\left(\frac{a}{b}\right)} \\
-F_\mbox{recip}(x) &=& \frac{\log(x) - \log(b)}{\log(a) - \log(b)} 
+f_\mbox{recip}(x; a, b) &=& \frac{1}{x \\, \log\left(\frac{a}{b}\right)} \\
+F_\mbox{recip}(x; a, b) &=& \frac{\log(x) - \log(b)}{\log(a) - \log(b)} 
 \end{aligned} $$
 
 The linear version of the Horton and Hoyt model can be expressed as follows:
