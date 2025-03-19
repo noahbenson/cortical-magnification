@@ -61,8 +61,8 @@ function is difficult to derive as it requires integration:
 $$ \begin{aligned}
 M(x,y) &=& A_0 F(x,y) \\
        &=& \int \int m(x,y) \\, \mathrm{d}x \\, \mathrm{d}y \\
-       &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, m(r\cos\theta, r\sin\theta) \\, \mathrm{d}r \\, \mathrm{d}\theta \\
-       &=& A_0 \int_{-\pi}^{\pi} \int_{0}^{R} r \\, f(r\cos\theta, r\sin\theta) \\, \mathrm{d}r \\, \mathrm{d}\theta \\
+       &=& \int_{-\pi}^{\pi} \int_{0}^{r} \rho \\, m(\rho\cos\theta, \rho\sin\theta) \\, \mathrm{d}\rho \\, \mathrm{d}\theta \\
+       &=& A_0 \int_{-\pi}^{\pi} \int_{0}^{r} \rho \\, f(\rho\cos\theta, \rho\sin\theta) \\, \mathrm{d}\rho \\, \mathrm{d}\theta \\
 \end{aligned} $$
 
 Depending on the functions $m$ and $f$, this construction may not have a closed
@@ -73,9 +73,9 @@ this slightly more:
 
 $$ \begin{align}
 M(r) &=& A_0 F(r) \\
-     &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, m(r) \\, \mathrm{d}r \\, \mathrm{d}\theta \\
-     &=& 2 \pi \int_{0}^{R} r \\, m(r) \\, \mathrm{d}r \\
-     &=& 2 \pi A_0 \int_{0}^{R} r \\, f(r) \\, \mathrm{d}r
+     &=& \int_{-\pi}^{\pi} \int_{0}^{r} \rho \\, m(\rho) \\, \mathrm{d}\rho \\, \mathrm{d}\theta \\
+     &=& 2 \pi \int_{0}^{r} \rho \\, m(\rho) \\, \mathrm{d}\rho \\
+     &=& 2 \pi A_0 \int_{0}^{r} \rho \\, f(\rho) \\, \mathrm{d}\rho
 \end{align} $$
 
 ### The Horton and Hoyt (1991) model
