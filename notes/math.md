@@ -19,7 +19,7 @@ the coordinates of a point in the visual field typically in degrees of visual
 angle, to be a function that yields the magnification factor, typically in
 $\mbox{mm}^2$ of cortex per $\mbox{degree}^2$ of visual angle. This notably
 differs from the linear cortical magnification such as that proposed by Horton
-and Hoyt (1991) in their equation $m(r) = a / (b + r)$ for an eccentricity $r =
+and Hoyt (1991) in their equation $m_\bar{\mbox{HH}}(r) = a / (b + r)$ for an eccentricity $r =
 \sqrt{x^2 + y^2}$ and parameters $a$ in mm and $b$ in degrees. Such a function
 can be converted from a linear cortical magnification to an (areal) cortical
 magnification function by squaring it; here, we use the areal version of the
@@ -86,9 +86,13 @@ M_\mbox{HH}(r) &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, \left( \frac{a}{b+r} \ri
 The Horton and Hoyt model is closely related to the [reciprocal distribution](https://en.wikipedia.org/wiki/Reciprocal_distribution). This distribution is characterized by the probability density function $f_\mbox{recip}(x)$ and cumulative density function $F_\mbox{recip}(x)$, below:
 
 $$ \begin{aligned}
-f_\mbox{recip}(x) &=& \frac{1}{x \log\left(\frac{b}{a}\right)} \\
-F_\mbox{recip}(x) &=& \frac{\log x - \log a}{\log b - \log a} 
+f_\mbox{recip}(x) &=& \frac{1}{x \\, \log\left(\frac{b}{a}\right)} \\
+F_\mbox{recip}(x) &=& \frac{\log(x) - \log(a)}{\log(b) - \log(a)} 
 \end{aligned} $$
+
+The linear version of the Horton and Hoyt model can be expressed as follows:
+
+$$ m
 
 
 
