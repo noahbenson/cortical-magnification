@@ -74,7 +74,8 @@ this slightly more:
 $$ \begin{align}
 M(r) &=& A_0 F(r) \\
      &=& \int_{-\pi}^{\pi} \int_{0}^{R} r \\, m(r) \\, \mathrm{d}r \\, \mathrm{d}\theta \\
-     &=& 2 \pi \int_{0}^{R} r \\, m(r) \\, \mathrm{d}r = 2 \pi A_0 \int_{0}^{R} r \\, f(r) \\, \mathrm{d}r
+     &=& 2 \pi \int_{0}^{R} r \\, m(r) \\, \mathrm{d}r \\
+     &=& 2 \pi A_0 \int_{0}^{R} r \\, f(r) \\, \mathrm{d}r
 \end{align} $$
 
 ### The Horton and Hoyt (1991) model
@@ -99,7 +100,6 @@ The linear version of the Horton and Hoyt model can be expressed as follows:
 $$ m_\overline{\mbox{HH}}(r; a, b) = \sqrt{A_0} \\, f_\mbox{recip}(r + b; a, b) $$
 
 
-
-
 ## Fitting cortical magnification
+
 
