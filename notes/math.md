@@ -111,8 +111,8 @@ distribution is characterized by the probability density function
 $f_\mbox{recip}(x)$ and cumulative density function $F_\mbox{recip}(x)$, below:
 
 $$ \begin{aligned}
-f_\mbox{recip}(x; \alpha, \beta) &=& \frac{1}{x \\, \log\left(\frac{\alpha}{\beta}\right)} \\
-F_\mbox{recip}(x; \alpha, \beta) &=& \frac{\log(x) - \log(\beta)}{\log(\alpha) - \log(\beta)} 
+f_\mbox{recip}(x; \alpha, \beta) &=& \frac{1}{x \\, \log\left(\frac{\beta}{\alpha}\right)} \\
+F_\mbox{recip}(x; \alpha, \beta) &=& \frac{\log(x) - \log(\alpha)}{\log(\beta) - \log(\alpha)} 
 \end{aligned} $$
 
 The linear version of the Horton and Hoyt model is essentially a reciprocal
@@ -120,7 +120,8 @@ distribution that has been shifted along the $x$-axis:
 
 $$ \begin{aligned}
 m_{\sqrt{\mbox{HH}}}(r; a, b) &=& \sqrt{A_0} \\, f_\mbox{recip}(r + b; b, b + R) \\
-   &=& \sqrt{A_0} \\, \left(x \\, \log\left(\frac{b}{b + R}\right)\right)^{-1}
+   &=& \sqrt{A_0} \\, \left(r \\, \log\left(\frac{b + R}{b}\right)\right)^{-1} \\
+   &=& \sqrt{A_0} \frac{\log(b + R) - \log(b)}{x \left(r \\, \log\left(\frac{b}{b + R}\right)\right)^{-1}
 \end{aligned} $$
 
 
