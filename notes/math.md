@@ -121,7 +121,7 @@ distribution that has been shifted along the $x$-axis:
 $$ \begin{aligned}
 m_{\sqrt{\mbox{HH}}}(r; a, b) &=& \sqrt{A_0} \\, f_\mbox{recip}(r + b; b, b + R) \\
    &=& \sqrt{A_0} \\, \left((r + b) \\, \log\left(\frac{b + R}{b}\right)\right)^{-1} \\
-   &=& \frac{\sfrac{\sqrt{A_0}}{\log\left(\frac{b+R}{b}\right)}}{r + b}
+   &=& \frac{\sqrt{A_0} \log^{-1}\left(\frac{b+R}{b}\right)}{r + b}
 \end{aligned} $$
 
 
