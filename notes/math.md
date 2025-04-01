@@ -94,16 +94,16 @@ Given the closed form of this integral, we can reparameterize the model in
 terms of $A_0$ by observing that $A_0 = M_\mbox{HH}(R; a, b)$ and solving for
 the parameter $a$:
 
-$ \begin{aligned}
+$$ \begin{aligned}
 A_0 &=& M_{\mbox{HH}}(R; a, b) \\
   &=& 2 \pi a^2 \left( \log\left(\frac{b+R}{b}\right) - \frac{R}{b + R} \right) \\
 2 \pi a^2 &=& \frac{A_0}{\log\left(\frac{b+R}{b}\right) - \frac{R}{b + R}} \\
 a &=& \sqrt{ \frac{A_0}{2 \pi \left(\log\left(\frac{b+R}{b}\right) - \frac{R}{b + R}\right)} }
-\end{aligned} $
+\end{aligned} $$
 
 This substitution gives us a version of original model based on $A_0$ and $R$ instead of the parameter $a$:
 
-$$ \m_{\mbox{HH}}(r; b, A_0, R) = \frac{A_0}{2 \pi \left(\log\left(\frac{b+R}{b}\right) - \frac{R}{b + R}\right) (b + r)^2} $$
+$$ m_{\mbox{HH}}(r; b, A_0, R) = \frac{A_0}{2 \pi \left(\log\left(\frac{b+R}{b}\right) - \frac{R}{b + R}\right) (b + r)^2} $$
 
 The Horton and Hoyt model is closely related to the [reciprocal
 distribution](https://en.wikipedia.org/wiki/Reciprocal_distribution). This
