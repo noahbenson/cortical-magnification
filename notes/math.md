@@ -23,11 +23,13 @@ the coordinates of a point in the visual field typically in degrees of visual
 angle, to be a function that yields the magnification factor, typically in
 $\mbox{mm}^2$ of cortex per $\mbox{degree}^2$ of visual angle. This notably
 differs from the linear cortical magnification such as that proposed by Horton
-and Hoyt (1991) in their equation $m_\overline{\mbox{HH}}(r; a, b) = a / (b +
+and Hoyt (1991) in their equation $m_{\sqrt{\mbox{HH}}}(r; a, b) = a / (b +
 r)$ for an eccentricity $r = \sqrt{x^2 + y^2}$ and parameters $a$ in mm and $b$
-in degrees. Such a function can be converted from a linear cortical
-magnification to an (areal) cortical magnification function by squaring it;
-here, we use the areal version of the Horton and Hoyt model:
+in degrees. (Note that we use the identifier $m_{\mbox{HH}}$ to refer to the
+areal cortical magnification model and the identifier $m_{\sqrt{\mbox{HH}}}$ to
+refer to the linear version.) Such a function can be converted from a linear
+cortical magnification to an (areal) cortical magnification function by
+squaring it; here, we use the areal version of the Horton and Hoyt model:
 
 $$ m_\mbox{HH}(r; a, b) = \left(\frac{a}{b+r}\right)^2 $$
 
@@ -88,23 +90,39 @@ M_\mbox{HH}(r; a, b) &=& \int_{-\pi}^{\pi} \int_{0}^{r} \rho \\, \left( \frac{a}
     &=& 2 \pi a^2 \left( \log\left(\frac{b+r}{b}\right) - \frac{r}{b + r} \right)
 \end{align} $$
 
+Given the closed form of this integral, we can reparameterize the model in
+terms of $A_0$ by observing that $A_0 = M_\mbox{HH}(R; a, b)$ and solving for
+the parameter $a$:
+
+$ \begin{aligned}
+A_0 &=& M_{\mbox{HH}}(R; a, b) \\
+  &=& 2 \pi a^2 \left( \log\left(\frac{b+R}{b}\right) - \frac{R}{b + R} \right) \\
+2 \pi a^2 &=& \frac{A_0}{\log\left(\frac{b+R}{b}\right) - \frac{R}{b + R}} \\
+a &=& \sqrt{ \frac{A_0}{2 \pi \left(\log\left(\frac{b+R}{b}\right) - \frac{R}{b + R}\right)} }
+\end{aligned} $
+
+This substitution gives us a version of original model based on $A_0$ and $R$ instead of the parameter $a$:
+
+$$ \m_{\mbox{HH}}(r; b, A_0, R) = \frac{A_0}{2 \pi \left(\log\left(\frac{b+R}{b}\right) - \frac{R}{b + R}\right) (b + r)^2} $$
+
 The Horton and Hoyt model is closely related to the [reciprocal
 distribution](https://en.wikipedia.org/wiki/Reciprocal_distribution). This
 distribution is characterized by the probability density function
 $f_\mbox{recip}(x)$ and cumulative density function $F_\mbox{recip}(x)$, below:
 
 $$ \begin{aligned}
-f_\mbox{recip}(x; a, b) &=& \frac{1}{x \\, \log\left(\frac{a}{b}\right)} \\
-F_\mbox{recip}(x; a, b) &=& \frac{\log(x) - \log(b)}{\log(a) - \log(b)} 
+f_\mbox{recip}(x; \alpha, \beta) &=& \frac{1}{x \\, \log\left(\frac{\alpha}{\beta}\right)} \\
+F_\mbox{recip}(x; \alpha, \beta) &=& \frac{\log(x) - \log(\beta)}{\log(\alpha) - \log(\beta)} 
 \end{aligned} $$
 
 The linear version of the Horton and Hoyt model is essentially a reciprocal
-distribution that is not truncated at the periphery. (Reciprocal distributions
-are typically defined only over the interval $[a,b]$.) However, since the
-magnification in the periphery is very small, the model is very close to the
-reciprocal distribution with a different scaling factor:
+distribution that has been shifted along the $x$-axis:
 
-$$ m_\overline{\mbox{HH}}(r; a, b) \approx \sqrt{A_0} \\, f_\mbox{recip}(r + b; a, b) $$
+$$ \begin{aligned}
+m_{\sqrt{\mbox{HH}}}(r; a, b) &=& \sqrt{A_0} \\, f_\mbox{recip}(r + b; b, b + R) \\
+   &=& \sqrt{A_0} \\, \left(x \\, \log\left(\frac{b}{b + R}\right)\right)^{-1}
+\end{aligned} $$
+
 
 
 ## Fitting cortical magnification
